@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.2.0:
+
+* removed rbenv dependency
+
 ## 0.1.1:
 
 * Use https git url
