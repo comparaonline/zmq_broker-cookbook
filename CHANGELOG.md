@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.1.1:
+
+* Use https git url
+
 ## 0.1.0:
 
 * Initial release of zmq_broker
