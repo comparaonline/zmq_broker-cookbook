@@ -3,4 +3,4 @@ source /etc/profile.d/rbenv.sh
 envdir=$PWD/env
 cd <%=@options[:app_folder]%>
 exec 2>&1 \
-  chpst -e $envdir ruby app.rb
+  chpst -e $envdir bundle exec ruby app.rb
