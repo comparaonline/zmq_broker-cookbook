@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.2.1:
+
+* ensure libzmq is installed
+
 ## 0.2.0:
 
 * removed rbenv dependency

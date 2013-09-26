@@ -8,6 +8,13 @@
 include_recipe 'zsh'
 include_recipe 'runit'
 
+case node['platform_family']
+when 'debian'
+  package 'libzmq-dev'
+when 'rhel'
+  package 'zeromq3-devel'
+end
+
 # Create a normal user for running services later
 group node.zmq_broker.group
 
