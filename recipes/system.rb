@@ -5,7 +5,6 @@
 #
 # All rights reserved - Do Not Redistribute
 
-include_recipe 'zsh'
 include_recipe 'runit'
 
 case node['platform_family']
