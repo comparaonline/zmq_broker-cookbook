@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.2.4:
+
+* added rbenv to app path
+
 ## 0.2.3:
 
 * set bash as shell for zmq_broker user and removed zsh requirement
