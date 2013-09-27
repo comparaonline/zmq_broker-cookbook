@@ -1,7 +1,6 @@
 #!/bin/sh
 source /etc/profile.d/rbenv.sh
 envdir=$PWD/env
-export PATH=~/.rbenv/shims:~/.rbenv/bin:"$PATH"
 cd <%=@options[:app_folder]%>
 exec 2>&1 \
-  chpst -e $envdir bundle exec ruby app.rb
+  chpst -e $envdir app.rb
