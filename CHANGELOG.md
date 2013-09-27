@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.2.6:
+
+* run app using ruby executable
 
 ## 0.2.5:
 
