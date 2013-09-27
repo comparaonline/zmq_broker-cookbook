@@ -19,6 +19,7 @@ group node.zmq_broker.group
 
 user node.zmq_broker.user do
   comment 'zmq_broker application user'
+  shell '/bin/bash'
   gid node.zmq_broker.group
   home node.zmq_broker.home
   supports manage_home: true
