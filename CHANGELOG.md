@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.3.1:
+
+* make the service run with bash
+
 ## 0.3.0:
 
 * removed timestamp from service logger
