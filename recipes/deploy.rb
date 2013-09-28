@@ -20,7 +20,6 @@ runit_service 'zmq_broker' do
     app_folder: node.zmq_broker.location + '/current'
   })
 
-  default_logger true
   restart_on_update false # handle restart manually
 end
 

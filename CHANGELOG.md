@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.3.0:
+
+* removed timestamp from service logger
+
 ## 0.2.6:
 
 * run app using ruby executable
