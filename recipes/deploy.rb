@@ -5,6 +5,13 @@
 #
 # All rights reserved - Do Not Redistribute
 
+directory "/var/log/#{node.zmq_broker.user}" do
+  owner node.zmq_broker.user
+  group node.zmq_broker.group
+  mode 00644
+  action :create
+end
+
 runit_service 'zmq_broker' do
   sv_dir "#{node.zmq_broker.home}/sv"
   service_dir "#{node.zmq_broker.home}/service"

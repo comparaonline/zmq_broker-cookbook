@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.3.2:
+
+* ensure log dir exists
+
 ## 0.3.1:
 
 * make the service run with bash
