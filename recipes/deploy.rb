@@ -8,7 +8,7 @@
 directory "/var/log/#{node.zmq_broker.user}" do
   owner node.zmq_broker.user
   group node.zmq_broker.group
-  mode 00644
+  mode 00755
   action :create
 end
 

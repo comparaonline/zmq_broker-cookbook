@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.3.3:
+
+* fixed log dir permissions
+
 ## 0.3.2:
 
 * ensure log dir exists
