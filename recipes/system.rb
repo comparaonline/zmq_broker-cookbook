@@ -7,7 +7,7 @@
 
 include_recipe 'runit'
 
-case node['platform_family']
+case node.platform_family
 when 'debian'
   package 'libzmq-dev'
 when 'rhel'
