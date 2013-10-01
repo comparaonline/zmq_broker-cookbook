@@ -7,4 +7,4 @@ default.zmq_broker.revision = 'master'
 default.zmq_broker.action = :deploy
 
 default.zmq_broker.env = 'production'
-default.zmq_broker.jruby_opts = '--2.0'
+default.zmq_broker.jruby_opts = '--1.9 -J-server -Xcompile.invokedynamic=true'

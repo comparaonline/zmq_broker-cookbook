@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.4.0:
+
+* enabled jruby performance enhancements
+
 ## 0.3.3:
 
 * fixed log dir permissions
