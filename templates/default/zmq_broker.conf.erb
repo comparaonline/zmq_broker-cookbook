@@ -1,0 +1,23 @@
+# zmq_broker - ZeroMQ Broker Application
+#
+# zmq_broker receive messages on port 5555 and publishes them on port 5556
+
+description "ZeroMQ Broker"
+
+start on net-device-up
+stop on runlevel [!2345]
+
+respawn
+respawn limit 10 5
+
+pre-start script
+    getent passwd <%= @user %> >/dev/null 2>&1 || { stop; exit 0; }
+    test -x <%= @env['HOME'] + '/current' %> || { stop; exit 0; }
+end script
+
+exec su -s /bin/sh -c "
+    export <% @env.each do |key, value| %><%= key %>='<%= value %>' <% end %>\
+    && source /etc/profile.d/rbenv.sh \
+    && cd <%= @env['HOME'] + '/current' %> \
+    && exec ruby app.rb >> /var/log/zmq_broker.log 2>&1
+" <%= @user %> --

@@ -12,24 +12,6 @@ directory "/var/log/#{node.zmq_broker.user}" do
   action :create
 end
 
-runit_service 'zmq_broker' do
-  sv_dir "#{node.zmq_broker.home}/sv"
-  service_dir "#{node.zmq_broker.home}/service"
-  owner node.zmq_broker.user
-  group node.zmq_broker.group
-  env({
-    'HOME' => node.zmq_broker.home,
-    'JRUBY_OPTS' => node.zmq_broker.jruby_opts
-  })
-
-  options({
-    user: node.zmq_broker.user,
-    app_folder: node.zmq_broker.location + '/current'
-  })
-
-  restart_on_update false # handle restart manually
-end
-
 deploy_revision node.zmq_broker.location do
   retries 2
   action node.zmq_broker.action
@@ -61,5 +43,5 @@ deploy_revision node.zmq_broker.location do
     end
   end
 
-  restart_command "sv term #{node.zmq_broker.home}/service/zmq_broker"
+  notifies :restart, "service[zmq_broker]"
 end
