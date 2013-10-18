@@ -17,7 +17,7 @@ end script
 
 exec su -s /bin/sh -c "
     export <% @env.each do |key, value| %><%= key %>='<%= value %>' <% end %>\
-    && source /etc/profile.d/rbenv.sh \
+    && . /etc/profile.d/rbenv.sh \
     && cd <%= @env['HOME'] + '/current' %> \
     && exec ruby app.rb >> /var/log/zmq_broker.log 2>&1
 " <%= @user %> --

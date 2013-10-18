@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
-## 0.5.0:
+## 0.5.1:
 
 * use upstart instead of runit
 
