@@ -1,4 +1,0 @@
-#!/bin/sh
-export HOME=<%=@options[:home]%>
-exec 2>&1 \
-  chpst -u <%=@options[:user]%> runsvdir -P $HOME/service 'log:.........................................................................................................'
