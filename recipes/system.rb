@@ -15,6 +15,13 @@ end
 # Create a normal user for running services later
 group node.zmq_broker.group
 
+file '/var/log/zmq_broker.log' do
+  owner node.zmq_broker.user
+  group node.zmq_broker.group
+  mode '0644'
+  action :create
+end
+
 template '/etc/init/zmq_broker.conf' do
   source 'zmq_broker.conf.erb'
   mode 0600
