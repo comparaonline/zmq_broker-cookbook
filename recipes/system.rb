@@ -7,7 +7,17 @@
 
 case node.platform_family
 when 'debian'
-  package 'libzmq-dev'
+  apt_repository 'chris-lea-zeromq' do
+    uri        'http://ppa.launchpad.net/chris-lea/zeromq'
+    components   ['main']
+    distribution 'precise'
+  end
+
+  packages = %w(libzmq3-dbg libzmq3-dev libzmq3)
+
+  packages.each do |p|
+    package p
+  end
 when 'rhel'
   package 'zeromq3-devel'
 end

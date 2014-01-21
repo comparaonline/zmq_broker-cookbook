@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.6.0:
+
+* use chris lea's zeromq ppa
+
 ## 0.5.2:
 
 * ensure log file exists
