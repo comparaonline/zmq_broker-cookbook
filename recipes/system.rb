@@ -7,7 +7,7 @@
 
 case node.platform_family
 when 'debian'
-  apt_repository 'chris-lea-zeromq' do
+  apt_repository 'chris-lea-zeromq-precise' do
     uri        'http://ppa.launchpad.net/chris-lea/zeromq/ubuntu'
     components   ['main']
     distribution 'precise'

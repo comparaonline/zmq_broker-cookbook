@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.6.3:
+
+* changed ppa name
+
 ## 0.6.2:
 
 * fixed ppa uri
