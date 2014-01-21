@@ -8,9 +8,11 @@
 case node.platform_family
 when 'debian'
   apt_repository 'chris-lea-zeromq' do
-    uri        'http://ppa.launchpad.net/chris-lea/zeromq'
+    uri        'http://ppa.launchpad.net/chris-lea/zeromq/ubuntu'
     components   ['main']
     distribution 'precise'
+    keyserver 'keyserver.ubuntu.com'
+    key 'C7917B12'
   end
 
   packages = %w(libzmq3-dbg libzmq3-dev libzmq3)
