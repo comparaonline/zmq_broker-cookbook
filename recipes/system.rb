@@ -25,6 +25,14 @@ end
 # Create a normal user for running services later
 group node.zmq_broker.group
 
+# ensure user exists
+user node.zmq_broker.user do
+  gid node.zmq_broker.group
+  home node.zmq_broker.home
+
+  supports manage_home: true
+end
+
 file '/var/log/zmq_broker.log' do
   owner node.zmq_broker.user
   group node.zmq_broker.group
