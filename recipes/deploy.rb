@@ -5,13 +5,6 @@
 #
 # All rights reserved - Do Not Redistribute
 
-directory "/var/log/#{node.zmq_broker.user}" do
-  owner node.zmq_broker.user
-  group node.zmq_broker.group
-  mode 00755
-  action :create
-end
-
 deploy_revision node.zmq_broker.location do
   retries 2
   action node.zmq_broker.action
