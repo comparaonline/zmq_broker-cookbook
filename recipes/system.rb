@@ -5,6 +5,8 @@
 #
 # All rights reserved - Do Not Redistribute
 
+include_recipe 'logrotate'
+
 case node.platform_family
 when 'debian'
   apt_repository 'chris-lea-zeromq-precise' do
@@ -37,9 +39,16 @@ end
 
 file '/var/log/zmq_broker.log' do
   owner node.zmq_broker.user
-  group node.zmq_broker.group
+  group 'adm'
   mode '0644'
   action :create
+end
+
+logrotate_app 'zmq_broker' do
+  path      '/var/log/zmq_broker.log'
+  frequency 'weekly'
+  rotate    4 # keep old logs for x * frequency
+  create    '644 root adm'
 end
 
 template '/etc/init/zmq_broker.conf' do
@@ -51,14 +60,14 @@ template '/etc/init/zmq_broker.conf' do
     user: node.zmq_broker.user,
     group: node.zmq_broker.group,
     env: {
-      'HOME' => node.zmq_broker.home,
-      'JRUBY_OPTS' => node.zmq_broker.jruby_opts
-    }
+      'HOME' => node.zmq_broker.home
+    },
+    flags: node.zmq_broker.flags
   })
 end
 
 service 'zmq_broker' do
   provider Chef::Provider::Service::Upstart
-  supports :restart => true, :status => true
+  supports restart: true, status: true
   action :enable
 end

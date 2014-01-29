@@ -1,10 +1,7 @@
 default.zmq_broker.user = 'zmq_broker'
 default.zmq_broker.group = 'zmq_broker'
 default.zmq_broker.home = "/var/lib/#{default.zmq_broker.user}"
-default.zmq_broker.repo = 'https://github.com/comparaonline/zmq_broker.git'
-default.zmq_broker.location = default.zmq_broker.home
-default.zmq_broker.revision = 'master'
-default.zmq_broker.action = :deploy
 
 default.zmq_broker.env = 'production'
-default.zmq_broker.jruby_opts = '--1.9 -J-server -Xcompile.invokedynamic=true'
+default.zmq_broker.flags = '-ping_channel="ping" -ping_message="{\"action\": \"ping\"}" -ping_wait=60 -pub_address="tcp://*:5556" -pub_hwm=5 -sub_address="tcp://*:5555" -sub_hwm=5'
+default.zmq_broker.binary_url = 'https://github.com/comparaonline/zmq_broker_go/releases/download/latest/zmq_broker_go'

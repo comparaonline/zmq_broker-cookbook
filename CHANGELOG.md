@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.7.0:
+
+* use go broker implementation
+
 ## 0.6.4:
 
 * removed unused log directories
