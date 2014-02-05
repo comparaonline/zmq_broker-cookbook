@@ -49,6 +49,7 @@ logrotate_app 'zmq_broker' do
   frequency 'weekly'
   rotate    4 # keep old logs for x * frequency
   create    '644 root adm'
+  postrotate 'restart rsyslog >/dev/null 2>&1 || true'
 end
 
 template '/etc/init/zmq_broker.conf' do
