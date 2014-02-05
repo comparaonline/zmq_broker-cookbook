@@ -72,3 +72,8 @@ service 'zmq_broker' do
   supports restart: true, status: true
   action :enable
 end
+
+service 'rsyslog' do
+  provider Chef::Provider::Service::Upstart
+  supports restart: true, status: true
+end

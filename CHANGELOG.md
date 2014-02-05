@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.7.2:
+
+* restart rsyslog after deploying
+
 ## 0.7.1:
 
 * restart rsyslog after rotating log
