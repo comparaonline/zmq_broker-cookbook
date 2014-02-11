@@ -1,0 +1,13 @@
+{
+  "sources": {
+    "zmq_broker": {
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.3.6"
+    },
+    "logrotate": {
+      "locked_version": "1.5.0"
+    }
+  }
+}
