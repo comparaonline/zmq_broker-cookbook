@@ -17,12 +17,7 @@ when 'debian'
     keyserver 'keyserver.ubuntu.com'
     key 'C7917B12'
   end
-
-  packages = %w(libzmq3-dbg libzmq3-dev libzmq3)
-
-  packages.each do |p|
-    package p
-  end
+  package 'libzmq3-dev'
 when 'rhel'
   package 'zeromq3-devel'
 end
