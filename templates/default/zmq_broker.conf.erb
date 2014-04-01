@@ -1,6 +1,7 @@
 # zmq_broker - ZeroMQ Broker Application
 #
-# zmq_broker receive messages on port 5555 and publishes them on port 5556
+# zmq_broker receive messages on port 5555 and publishes them on port 5556.
+# It also publishes a REQ/REP broker using ROUTER/DEALER 0MQ sockets on ports 5559 and 5560.
 
 description "ZeroMQ Broker"
 
@@ -20,5 +21,5 @@ end script
 
 script
   cd <%= @env['HOME'] %>
-  exec ./zmq_broker_go -ping_channel="ping" -ping_message="{\"action\": \"ping\"}" -ping_wait=60 -pub_address="tcp://*:5556" -pub_hwm=5 -sub_address="tcp://*:5555" -sub_hwm=5>> /var/log/zmq_broker.log 2>&1
+  exec ./zmq_broker_go <%= @flags %> >> /var/log/zmq_broker.log 2>&1
 end script
