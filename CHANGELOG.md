@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.7.3:
+
+* fixed flags usage
+* specifying all libzmq packages wasn't required
+* added some missing service description
+
 ## 0.7.2:
 
 * restart rsyslog after deploying
