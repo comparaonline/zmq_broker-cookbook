@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of zmq_broker.
 
+## 0.8.0:
+
+* added version attribute
+
 ## 0.7.3:
 
 * fixed flags usage

@@ -6,7 +6,7 @@ maintainer_email 'ggayan@comparaonline.com'
 license          'All rights reserved'
 description      'Configures and deploys zmq_broker application to node'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.7.3'
+version          '0.8.0'
 
 depends 'apt', '~> 2.3.6'
 depends 'logrotate', '~> 1.5.0'
