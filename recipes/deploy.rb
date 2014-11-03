@@ -11,5 +11,4 @@ remote_file "#{node.zmq_broker.home}/zmq_broker_go" do
   user node.zmq_broker.user
   group node.zmq_broker.group
   notifies :restart, 'service[zmq_broker]'
-  notifies :restart, 'service[rsyslog]'
 end

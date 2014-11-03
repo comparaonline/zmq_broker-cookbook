@@ -8,19 +8,7 @@
 include_recipe 'apt'
 include_recipe 'logrotate'
 
-case node.platform_family
-when 'debian'
-  apt_repository 'chris-lea-zeromq-precise' do
-    uri        'http://ppa.launchpad.net/chris-lea/zeromq/ubuntu'
-    components   ['main']
-    distribution 'precise'
-    keyserver 'keyserver.ubuntu.com'
-    key 'C7917B12'
-  end
-  package 'libzmq3-dev'
-when 'rhel'
-  package 'zeromq3-devel'
-end
+package 'libzmq3-dev'
 
 # Create a normal user for running services later
 group node.zmq_broker.group
@@ -45,7 +33,6 @@ logrotate_app 'zmq_broker' do
   frequency 'weekly'
   rotate    4 # keep old logs for x * frequency
   create    '644 root adm'
-  postrotate 'restart rsyslog >/dev/null 2>&1 || true'
 end
 
 template '/etc/init/zmq_broker.conf' do
@@ -67,9 +54,4 @@ service 'zmq_broker' do
   provider Chef::Provider::Service::Upstart
   supports restart: true, status: true
   action :enable
-end
-
-service 'rsyslog' do
-  provider Chef::Provider::Service::Upstart
-  supports restart: true, status: true
 end
