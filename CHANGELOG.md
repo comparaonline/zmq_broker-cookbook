@@ -1,5 +1,7 @@
 # CHANGELOG for zmq_broker
 
+## 0.10.0 - 2015-05-04:
+* Fixed node attributes handling
 
 ## 0.9.0 - 2014-11-03:
 * removed support for centos

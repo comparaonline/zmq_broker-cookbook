@@ -11,18 +11,18 @@ include_recipe 'logrotate'
 package 'libzmq3-dev'
 
 # Create a normal user for running services later
-group node.zmq_broker.group
+group node['zmq_broker']['group']
 
 # ensure user exists
-user node.zmq_broker.user do
-  gid node.zmq_broker.group
-  home node.zmq_broker.home
+user node['zmq_broker']['user'] do
+  gid node['zmq_broker']['group']
+  home node['zmq_broker']['home']
 
   supports manage_home: true
 end
 
 file '/var/log/zmq_broker.log' do
-  owner node.zmq_broker.user
+  owner node['zmq_broker']['user']
   group 'adm'
   mode '0644'
   action :create
@@ -41,12 +41,12 @@ template '/etc/init/zmq_broker.conf' do
   owner 'root'
   group 'root'
   variables({
-    user: node.zmq_broker.user,
-    group: node.zmq_broker.group,
+    user: node['zmq_broker']['user'],
+    group: node['zmq_broker']['group'],
     env: {
-      'HOME' => node.zmq_broker.home
+      'HOME' => node['zmq_broker']['home']
     },
-    flags: node.zmq_broker.flags
+    flags: node['zmq_broker']['flags']
   })
 end
 
