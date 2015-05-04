@@ -1,5 +1,8 @@
 # CHANGELOG for zmq_broker
 
+## 0.10.1 - 2015-05-04:
+* Point to latest broker release
+
 ## 0.10.0 - 2015-05-04:
 * Fixed node attributes handling
 
